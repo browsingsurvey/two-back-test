@@ -1,0 +1,36 @@
+{
+  "name": "two-back-test",
+  "version": "1.0.0",
+  "description": "two back test",
+  "main": "webServer.js",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-animate": "^1.5.0",
+    "angular-aria": "^1.5.0",
+    "angular-material": "^1.0.5",
+    "angular-resource": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "async": "^1.5.2",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "jshint": "^2.9.1",
+    "lz-string": "^1.4.4",
+    "mongoose": "^4.4.4",
+    "multer": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jzhang4/two-back-test.git"
+  },
+  "author": "Jessica Zhang (http://github.com/jzhang4)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jzhang4/two-back-test/issues"
+  },
+  "homepage": "https://github.com/jzhang4/two-back-test#readme"
+}
