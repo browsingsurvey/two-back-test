@@ -101,12 +101,10 @@ app.post('/testResult', function(request, response) {
 
 });
 
-/*
 require('./log_history')(app)
 if (!is_heroku) { // disable this on heroku to avoid potentially crashing the server
     require('./view_history')(app)
 }
-*/
 
 var server = app.listen(3000, function () {
     var port = server.address().port;
