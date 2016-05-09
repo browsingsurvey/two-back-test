@@ -1,0 +1,8 @@
+<div>
+      <h1>Test Review Page</h1>
+      <p>Number Correct: {{main.num_correct}}</p>
+      <p>Total: {{main.total}}</p>
+      <p>Did you encounter any difficulties during the survey?</p>
+      <textarea ng-model="feedback" rows="4" cols="50"></textarea>
+      <p><button ng-click="save_result(feedback)">Complete and Submit Survey</button></p>
+</div>

@@ -1,0 +1,8 @@
+<div>
+    <h1 ng-if="started_trial===true">Trial {{trial_num}}</h1>
+    <h1 ng-if="started_trial===false">Pre-Trial {{trial_num + 2}}</h1>
+    <p>{{current_letter}}</p>
+	<button ng-if="started_trial===true" ng-click="advance('match')">Match</button>
+	<button ng-if="started_trial===true" ng-click="advance('nomatch')">Doesn't Match</button>
+	<button ng-if="started_trial===false" ng-click="advance('next')">Next</button>
+</div>
