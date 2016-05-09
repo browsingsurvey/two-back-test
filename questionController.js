@@ -14,14 +14,12 @@ twoBackApp.controller('questionController', ['$scope', '$resource', function($sc
 		if($scope.started_trial){
 			times_array.push({start_time: start_time,
 							  end_time: end_time});
-			console.log(times_array);
 			answer_array.push(answer);
 			if($scope.current_letter === letter_array[$scope.trial_num - 1]){
 				if(answer ==='match') $scope.num_correct++;
 			}else{
 				if(answer==='nomatch') $scope.num_correct++;
 			}
-			console.log($scope.num_correct);
 		}
 
 		if($scope.trial_num === 0){
@@ -35,7 +33,13 @@ twoBackApp.controller('questionController', ['$scope', '$resource', function($sc
 			$scope.main.answer_array = answer_array;
 			$scope.main.times = times_array;
 			$scope.main.letter_array = letter_array;
-			console.log("advance");
+
+			submit_browsing_history(function(){
+				console.log("done submitting browsing history");
+				$scope.save_result();
+                $scope.main.browsing_history_submitted = true;
+            });
+
 		}else{
 			start_time = Date.now();
 			$scope.trial_num++;
@@ -44,7 +48,19 @@ twoBackApp.controller('questionController', ['$scope', '$resource', function($sc
 	}
 
 
-	$scope.save_result = function(feedback){
+	$scope.pretend_submit = function(feedback){
+      $scope.main.feedback = feedback;
+      $scope.main.currently_submitting = true;
+
+      if($scope.main.browsing_history_submitted === false){
+        console.log("waiting to submit");
+        start_spinner();
+      }else{
+        $scope.save_result();
+      }
+   }
+
+	$scope.save_result = function(){
 		var res = $resource("/testResult");
         res.save({id: $scope.main.username, 
                   num_correct: $scope.main.num_correct,
@@ -52,11 +68,12 @@ twoBackApp.controller('questionController', ['$scope', '$resource', function($sc
                   answer_array: $scope.main.answer_array,
                   letters: $scope.main.letter_array,
                   times: $scope.main.times,
-                  feedback:feedback
+                  feedback:$scope.main.feedback
                 }, function(response){
                   $scope.main.code = calcMD5($scope.main.username);
                   $scope.main.submitted = true;
-                console.log("saved successfully!");
+                  end_spinner();
+                  console.log("saved successfully!");
             }, function errorHandling(err) { 
                 console.log("could not save result");
             });
@@ -70,7 +87,6 @@ twoBackApp.controller('questionController', ['$scope', '$resource', function($sc
 		for( var i=0; i < 42; i++ ){
 	    	letters.push(possible.charAt(Math.floor(Math.random() * possible.length)));
 		}
-		console.log(letters);
 	    return letters;
 	}
 

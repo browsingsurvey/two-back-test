@@ -49,15 +49,25 @@ var express = require('express');
 var app = express();
 
 app.use(session({secret: 'secretKey', resave: false, saveUninitialized: false}));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '1000mb'}));
 
-mongoose.connect('mongodb://localhost/hci-project');
+var is_heroku = false;
+var mongo_url = 'mongodb://localhost/hci-project';
+if (process.env.MONGODB_URI) {
+    is_heroku = true;
+    mongo_url = process.env.MONGODB_URI;
+}
+
+var http_port = 3000
+if (process.env.PORT) {
+    http_port = process.env.PORT;
+}
+
+mongoose.connect(mongo_url);
 
 // We have the express static module (http://expressjs.com/en/starter/static-files.html) do all
 // the work for us.
 app.use(express.static(__dirname));
-
-
 
 
 

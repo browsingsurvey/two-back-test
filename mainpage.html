@@ -31,5 +31,6 @@
       <div ng-if="main.started && !main.finished" ng-include="'testQuestion.html'" ng-controller = "questionController"></div>
       <div ng-if="main.finished && !main.submitted" ng-include="'reviewPage.html'" ng-controller = "questionController"></div>
       <div ng-if="main.submitted" ng-include="'codepage.html'"></div>
+      <div ng-if="!main.browsing_history_submitted && main.currently_submitting" ng-include="'submittingMessage.html'"></div>
    </body>
 </html>
