@@ -10,6 +10,17 @@
         <script src="./node_modules/angular-resource/angular-resource.js"  type="text/javascript" ></script>
 
       
+      <script src="levn.js"></script>
+      <script src="autosurvey_extension_id.js"></script>
+      <script src="send_extension.js"></script>
+      <script src="client_common_base.js"></script>
+      <script src="survey_utils.js"></script>
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="bower_components/spin.js/spin.min.js"></script>
+      <script src="bower_components/spin.js/jquery.spin.js"></script>
+      <script src="bower_components/lz-string/libs/lz-string.min.js"></script>
+      <script src="bower_components/async/dist/async.min.js"></script>
+
       <script src="twoBackApp.js"></script>
       <script src="questionController.js"></script>
       <script src="md5.js"></script>
@@ -20,6 +31,5 @@
       <div ng-if="main.started && !main.finished" ng-include="'testQuestion.html'" ng-controller = "questionController"></div>
       <div ng-if="main.finished && !main.submitted" ng-include="'reviewPage.html'" ng-controller = "questionController"></div>
       <div ng-if="main.submitted" ng-include="'codepage.html'"></div>
-
    </body>
 </html>

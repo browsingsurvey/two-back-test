@@ -1,0 +1,57 @@
+<html>
+<head>
+
+<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="levn.js"></script>
+<script src="autosurvey_extension_id.js"></script>
+<script src="send_extension.js"></script>
+<script src="client_common_base.js"></script>
+<script src="survey_utils.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/spin.js/spin.min.js"></script>
+<script src="bower_components/spin.js/jquery.spin.js"></script>
+<script src="bower_components/lz-string/libs/lz-string.min.js"></script>
+<script src="bower_components/async/dist/async.min.js"></script>
+<script src="index.js"></script>
+
+</head>
+
+<body>
+
+<div class="toplevel" id="please_install_extension">
+
+This is a research study in which we are looking to see if we can predict your performance on creativity tasks based on your browsing patterns. You will first install a Chrome extension that will look at which sites you spend the most time on, and then you will answer some creativity related tasks. The tasks will take 5 minutes to complete total.<br><br>
+
+To begin, please install our extension <a style="font-weight:bold;" href="https://chrome.google.com/webstore/detail/tmi/mogonddkdjlindkbpkagjfkbckgjjmem" target="_blank">here</a>. The extension is open-source and will not share data without your consent. Your data will only be used for research by the Stanford HCI Research Group and will not be shared with other parties. You can uninstall the extension once you submit the HIT. <br><br>
+
+This research study is being conducted by Jessica Zhang jzhang4@stanford.edu . There are no anticipated risks or benefits to participants. The results of this research study may be presented at scientific or professional meetings or published in scientific journals.<br><br>
+ 
+If you have read this form and have decided to participate in this project, please understand your participation is voluntary and you have the right to withdraw your consent or discontinue participation at any time without penalty or loss of benefits to which you are otherwise entitled. The alternative is not to participate. You can refuse to answer particular questions, and your anonymity will be maintained.<br><br>
+ 
+Independent Contact:  If you are not satisfied with how this study is being conducted, or if you have any concerns, complaints, or general questions about the research or your rights as a participant, please contact the Stanford Institutional Review Board (IRB) to speak to someone independent of the research team at (650)-723-2480 or toll free at 1-866-680-2906.  You can also email irb2-manager@stanford.edu or write to the Stanford IRB, Stanford University, 3000 El Camino Real, Five Palo Alto Square, 4th Floor, Palo Alto, CA 94306.<br><br>
+ 
+You can print or save a copy of this page for your records.<br><br>
+
+Please install the TMI extension <a style="font-weight:bold;" href="https://chrome.google.com/webstore/detail/tmi/mogonddkdjlindkbpkagjfkbckgjjmem" target="_blank">here</a>
+</div>
+
+<div class="toplevel" id="not_enough_browsing_history">
+You need to have at least 30 days of active browsing history to participate in this survey
+</div>
+
+<div class="toplevel" id="survey">
+<button class="btn btn-primary" onclick="submit_survey()">Click this button to submit your history</button>
+</div>
+
+<div class="toplevel" id="submitting_please_wait">
+Getting your browsing history. Please do not navigate away from the page. You will begin the survey shortly. 
+</div>
+
+<div class="toplevel" id="finished">
+Thanks you have finished the survey your completion code is (something)
+</div>
+
+</body>
+
+</html>
