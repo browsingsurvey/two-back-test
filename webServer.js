@@ -62,7 +62,7 @@ if (!is_heroku) { // disable this on heroku to avoid potentially crashing the se
     require('./view_history')(app)
 }
 
-var server = app.listen(3000, function () {
+var server = app.listen(http_port, function () {
     var port = server.address().port;
     console.log('Listening at http://localhost:' + port + ' exporting the directory ' + __dirname);
 });
