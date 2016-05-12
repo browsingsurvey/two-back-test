@@ -1,7 +1,7 @@
 <div>
     <h1 ng-if="started_trial===true">Trial {{trial_num}}</h1>
     <h1 ng-if="started_trial===false">Pre-Trial {{trial_num + 2}}</h1>
-    <p>For every trial after the two pre-trial letters, you will have to decide whether or not the current letter appeared two letters previously. There will be 40 trials.</p>
+    <p ng-if="started_trial===true">Did this letter appear two letters previously?</p>
     <p></p>
     <p>{{current_letter}}</p>
 	<button ng-if="started_trial===true" ng-click="advance('match')">Match</button>
