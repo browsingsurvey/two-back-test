@@ -84,9 +84,33 @@ twoBackApp.controller('questionController', ['$scope', '$resource', function($sc
 		var letters = [];
 		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+		var prev1 = null;
+		var prev2 = null;
 		for( var i=0; i < 42; i++ ){
-	    	letters.push(possible.charAt(Math.floor(Math.random() * possible.length)));
+			var is_same_as_prev2 = Math.random() < 1.0/7;
+			if (prev2 == null) {
+				is_same_as_prev2 = false;
+			}
+			var current =  null;
+			if (is_same_as_prev2) {
+				current = prev2;
+			} else {
+				var letter_idx = Math.floor(possible.length * Math.random());
+				current = possible[letter_idx];
+			}
+			prev2 = prev1;
+			prev1 = current;
+			letters.push(current);
 		}
+		/*
+		for( var i=0; i < 42; i++ ){
+			if( i > 2 && Math.floor(Math.random() * 6 === 0)){
+				letters.push(letters[i-2]);
+			}else{
+	    		letters.push(possible.charAt(Math.floor(Math.random() * possible.length)));
+	    	}
+		}
+		*/
 	    return letters;
 	}
 
