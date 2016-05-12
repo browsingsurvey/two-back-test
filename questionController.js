@@ -95,7 +95,7 @@ twoBackApp.controller('questionController', ['$scope', '$resource', function($sc
 			if (is_same_as_prev2) {
 				current = prev2;
 			} else {
-				var new_possible = possible.filter(function(x) { return x != prev2 });
+				var new_possible = possible.split('').filter(function(x) { return x != prev2 }).join('');
 				var letter_idx = Math.floor(new_possible.length * Math.random());
 				current = new_possible[letter_idx];
 			}
