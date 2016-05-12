@@ -95,22 +95,14 @@ twoBackApp.controller('questionController', ['$scope', '$resource', function($sc
 			if (is_same_as_prev2) {
 				current = prev2;
 			} else {
-				var letter_idx = Math.floor(possible.length * Math.random());
-				current = possible[letter_idx];
+				var new_possible = possible.filter(function(x) { return x != prev2 });
+				var letter_idx = Math.floor(new_possible.length * Math.random());
+				current = new_possible[letter_idx];
 			}
 			prev2 = prev1;
 			prev1 = current;
 			letters.push(current);
 		}
-		/*
-		for( var i=0; i < 42; i++ ){
-			if( i > 2 && Math.floor(Math.random() * 6 === 0)){
-				letters.push(letters[i-2]);
-			}else{
-	    		letters.push(possible.charAt(Math.floor(Math.random() * possible.length)));
-	    	}
-		}
-		*/
 	    return letters;
 	}
 
