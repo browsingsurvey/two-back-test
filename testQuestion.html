@@ -1,7 +1,9 @@
 <div>
     <h1 ng-if="started_trial===true">Trial {{trial_num}}</h1>
     <h1 ng-if="started_trial===false">Pre-Trial {{trial_num + 2}}</h1>
-    <p ng-if="started_trial===true">Did this letter appear two letters previously?</p>
+    <p ng-if="started_trial===false">Remember this number, you will be tested on it later.</p>
+	<p ng-if="started_trial===true && trial_num < 3">Is this the letter that appeared two trials ago (Pre-Trial {{trial_num}})?</p>
+    <p ng-if="started_trial===true">Is this the letter that appeared two trials ago (Trial {{trial_num - 2}})?</p>
     <p></p>
     <p>{{current_letter}}</p>
 	<button ng-if="started_trial===true" ng-click="advance('match')">Match</button>

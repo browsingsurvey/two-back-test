@@ -26,7 +26,7 @@ twoBackApp.controller('questionController', ['$scope', '$resource', function($sc
 			$scope.started_trial = true;
 		}
 
-		if($scope.trial_num === 10){
+		if($scope.trial_num === 40){
 			$scope.main.finished = true;
 			$scope.main.total = $scope.trial_num;
 			$scope.main.num_correct = $scope.num_correct;
