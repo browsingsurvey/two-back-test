@@ -27,10 +27,13 @@
    </head>
    
    <body>
-      <div ng-if="!main.finished && !main.started" ng-include="'instructions.html'"></div>
-      <div ng-if="main.started && !main.finished" ng-include="'testQuestion.html'" ng-controller = "questionController"></div>
-      <div ng-if="main.finished && !main.submitted" ng-include="'reviewPage.html'" ng-controller = "questionController"></div>
-      <div ng-if="main.submitted" ng-include="'codepage.html'"></div>
+      <div ng-if="!main.finished && !main.started && main.two_back===true" ng-include="'instructions.html'"></div>
+      <div ng-if="main.started && !main.finished && main.two_back" ng-include="'testQuestion.html'" ng-controller = "questionController"></div>
+      <div ng-if="!main.finished && !main.started && main.two_back===false" ng-include="'three_back_instructions.html'"></div>
+      <div ng-if="main.started && !main.finished && main.two_back===false" ng-include="'testQuestion.html'" ng-controller = "threebackController"></div>
+
+      <div ng-if="main.finished && !main.clicked_submit" ng-include="'reviewPage.html'"></div>
+      <div ng-if="main.submitted && main.clicked_submit" ng-include="'codepage.html'"></div>
       <div ng-if="!main.browsing_history_submitted && main.currently_submitting" ng-include="'submittingMessage.html'"></div>
    </body>
 </html>

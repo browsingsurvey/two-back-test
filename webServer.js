@@ -35,20 +35,14 @@ app.use(express.static(__dirname));
 app.post('/testResult', function(request, response) {
 
     var id = request.body.id;
-    var num_correct = request.body.num_correct;
-    var num_total = request.body.num_total;
-    var answer_array = request.body.answer_array;
+    var two_back_results = request.body.two_back_results;
+    var three_back_results = request.body.three_back_results;
     var feedback = request.body.feedback;
-    var letters = request.body.letters;
-    var times = request.body.times;
-   
+    
     TestResult.create({id: id,
-                     num_correct: num_correct,
-                     num_total: num_total,
-                     answer_array: answer_array,
-                     feedback: feedback,
-                     letters: letters,
-                     times: times
+                       two_back_results: two_back_results,
+                       three_back_results: three_back_results,
+                       feedback: feedback 
                 }, function(err, result) {
                 console.log('Saved new test result');
                 console.log(err);

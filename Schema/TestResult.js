@@ -9,12 +9,8 @@ var Schema = mongoose.Schema;
 // create a schema
 var testresult = new Schema({
 	id: String,
-	num_correct: Number,
-	num_total: Number,
-	answer_array: Array,
-	feedback: String,
-	letters: Array,
-	times: Array,
+	two_back_results: Object,
+	three_back_results: Object,
 	feedback: String
 });
 
