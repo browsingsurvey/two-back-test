@@ -1,12 +1,8 @@
 <div>
       <h1>Test Review Page</h1>
-      <h3>Two-Back Test</h3>
-      <p>Number Correct: {{main.two_back_results.num_correct}}</p>
-      <p>Total: {{main.two_back_results.num_total}}</p>
-      <h3>Three-Back Test</h3>
-      <p>Number Correct: {{main.three_back_results.num_correct}}</p>
-      <p>Total: {{main.three_back_results.num_total}}</p>
+      <p>Number Correct: {{main.num_correct}}</p>
+      <p>Total: {{main.total}}</p>
       <p>Did you encounter any difficulties during the survey?</p>
       <textarea ng-disabled="main.currently_submitting" ng-model="feedback" rows="4" cols="50"></textarea>
-      <p><button ng-disabled="main.currently_submitting" ng-click="main.pretend_submit(feedback)">Complete and Submit Survey</button></p>
+      <p><button ng-disabled="main.currently_submitting" ng-click="pretend_submit(feedback)">Complete and Submit Survey</button></p>
 </div>
