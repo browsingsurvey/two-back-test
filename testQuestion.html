@@ -1,14 +1,11 @@
 <div>
     <h1 ng-if="started_trial===true">Trial {{trial_num}}</h1>
-    <h1 ng-if="started_trial===false && showmatches && trial_num!==0">Pre-Trial {{trial_num + offset + 1}}</h1>
-    <h1 ng-if="started_trial===false && showmatches && trial_num===0">Begin Trials</h1>
-    <h1 ng-if="started_trial===false && trial_num > (0-offset) && !showmatches">Pre-Trial {{trial_num + offset}}</h1>
-    <p ng-if="started_trial===false && showmatches && trial_num!==0">Remember the following letter, you will be tested on it later. It will only appear for a short amount of time.</p>
-     <p ng-if="started_trial===false && showmatches && trial_num===0">You will now begin the trials. Continue to remember every letter shown to you.</p>
+    <h1 ng-if="started_trial===false">Pre-Trial {{trial_num + offset}}</h1>
+    <p ng-if="started_trial===false && showletter">Remember this letter, you will be tested on it later.</p>
 	<p ng-if="started_trial===true && trial_num < offset + 1 && showmatches">Does this letter match the one that appeared {{offset}} trials ago (Pre-Trial {{trial_num}})?</p>
     <p ng-if="started_trial===true && trial_num > offset && showmatches">Does this letter match the one that appeared {{offset}} trials ago (Trial {{trial_num - offset}})?</p>
     <p></p>
-    <h2 ng-if="showletter">{{current_letter}}</h2>
+    <h3 ng-if="showletter">{{current_letter}}</h3>
 	<button ng-if="started_trial===true && showmatches" ng-click="advance('match')">Match</button>
 	<button ng-if="started_trial===true && showmatches" ng-click="advance('nomatch')">Doesn't Match</button>
 	<button ng-if="started_trial===false && showmatches" ng-click="advance('next')">Next</button>

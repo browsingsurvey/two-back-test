@@ -2,15 +2,15 @@ twoBackApp.controller('questionController', ['$scope', '$interval', '$resource',
 
 	var letter_array = $scope.main.generateLetters(42, 2);
 	$scope.started_trial = false;
-	$scope.trial_num = -2;
+	$scope.trial_num = -1;
 	$scope.current_letter = letter_array[$scope.trial_num + 1];
 	var answer_array=[];
 	var times_array=[];
 	var start_time = Date.now();
 	$scope.offset = 2;
 	var countdown = 0;
-	$scope.showletter = false;
-	$scope.showmatches = true;
+	$scope.showletter = true;
+	$scope.showmatches = false;
 	var intervalPromise = $interval(function(){
 										countdown += 0.5;
 										if(countdown===0.5){
@@ -39,7 +39,7 @@ twoBackApp.controller('questionController', ['$scope', '$interval', '$resource',
 			$scope.started_trial = true;
 		}
 
-		if($scope.trial_num === 3){
+		if($scope.trial_num === 40){
 			$scope.main.two_back = false;
 
 			$scope.main.two_back_results = {
@@ -52,7 +52,6 @@ twoBackApp.controller('questionController', ['$scope', '$interval', '$resource',
 			$scope.main.started = false;
 
 		}else{
-			
 			start_time = Date.now();
 			$scope.trial_num++;
 			$scope.current_letter = letter_array[$scope.trial_num + 1];
@@ -66,7 +65,6 @@ twoBackApp.controller('questionController', ['$scope', '$interval', '$resource',
 											$scope.showletter = false;
 										}
 										if(countdown===3.5){
-											if($scope.trial_num===0) $scope.trial_num===1;
 											$scope.showmatches = true;
 										}
 									},500,8); //starts the countdown
@@ -76,11 +74,11 @@ twoBackApp.controller('questionController', ['$scope', '$interval', '$resource',
 
 }]);
 
-twoBackApp.controller('threebackController', ['$scope', '$interval','$resource', function($scope, $interval, $resource) {
+twoBackApp.controller('threebackController', ['$scope', '$resource', function($scope, $resource) {
 
 	var letter_array = $scope.main.generateLetters(43, 3);
 	$scope.started_trial = false;
-	$scope.trial_num = -3;
+	$scope.trial_num = -2;
 	$scope.current_letter = letter_array[$scope.trial_num + 2];
 	var answer_array=[];
 	var times_array=[];
@@ -88,8 +86,8 @@ twoBackApp.controller('threebackController', ['$scope', '$interval','$resource',
 	$scope.offset = 3;
 
 	var countdown = 0;
-	$scope.showletter = false;
-	$scope.showmatches = true;
+	$scope.showletter = true;
+	$scope.showmatches = false;
 	var intervalPromise = $interval(function(){
 										countdown += 0.5;
 										if(countdown===0.5){
@@ -118,7 +116,7 @@ twoBackApp.controller('threebackController', ['$scope', '$interval','$resource',
 			$scope.started_trial = true;
 		}
 
-		if($scope.trial_num === 3){
+		if($scope.trial_num === 40){
 			$scope.main.finished = true;
 			$scope.main.three_back_results = {
 				num_correct: $scope.num_correct,
@@ -148,7 +146,6 @@ twoBackApp.controller('threebackController', ['$scope', '$interval','$resource',
 											$scope.showletter = false;
 										}
 										if(countdown===3.5){
-											if($scope.trial_num===0) $scope.trial_num===1;
 											$scope.showmatches = true;
 										}
 									},500,8); //starts the countdown
