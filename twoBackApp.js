@@ -31,6 +31,9 @@ twoBackApp.controller('MainController', ['$scope', '$resource', function($scope,
    	}
 
 	$scope.main.save_result = function(){
+		console.log($scope.main.two_back_results);
+		console.log($scope.main.three_back_results);
+
 
 		var res = $resource("/testResult");
         res.save({id: $scope.main.username,
